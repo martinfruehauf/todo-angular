@@ -26,9 +26,7 @@ export class TodosComponent implements OnInit {
     this.getTodos();
   }
 
-
   public onSelect(todo: Todo): void {
     this.selectedTodo = todo;
   }
-
 }
