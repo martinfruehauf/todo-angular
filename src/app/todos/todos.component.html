@@ -10,9 +10,6 @@
           <div *ngIf="todo!==selectedTodo">
             <h5 class="card-title">Name: {{todo.name}}</h5>
           </div>
-          <div *ngIf="todo===selectedTodo">
-            <app-todo-detail [todo]="selectedTodo"></app-todo-detail>
-          </div>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
