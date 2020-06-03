@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TodoService {
-  private todosUrl = 'http://localhost:8080/todo-service-1.0-SNAPSHOT/api/todos'; // URL to web api (JBoss)
+  private readonly todosUrl = 'http://localhost:8080/todo-service-1.0-SNAPSHOT/api/todos'; // URL to web api (JBoss)
 
   constructor(private http: HttpClient) { }
 
