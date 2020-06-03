@@ -22,4 +22,4 @@ export const TODOS: Todo[] = [
     status: true,
     dueDate: '2018-01-10T07:30'
   }
-]
+];
