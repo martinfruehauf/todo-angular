@@ -1,0 +1,9 @@
+<h2>My Todos</h2>
+
+<ul class="heroes">
+  <li *ngFor="let todo of todos" (click)="onSelect(todo)">
+    <span class="badge">{{todo.id}}</span> {{todo.name}}
+  </li>
+</ul>
+
+<app-todo-detail [todo]="selectedTodo"></app-todo-detail>
