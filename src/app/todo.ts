@@ -3,5 +3,5 @@ export interface Todo {
   name: string;
   description: string;
   status: boolean;
-  dueDate: string;
+  dueDate: Date;
 }
