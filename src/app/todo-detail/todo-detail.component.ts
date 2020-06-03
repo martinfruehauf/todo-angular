@@ -8,12 +8,9 @@ import { Todo } from '../todo';
   styleUrls: ['./todo-detail.component.css']
 })
 
-export class TodoDetailComponent implements OnInit {
+export class TodoDetailComponent {
   @Input() todo: Todo;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
