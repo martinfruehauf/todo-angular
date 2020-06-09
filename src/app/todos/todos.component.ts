@@ -32,8 +32,8 @@ export class TodosComponent implements OnInit {
     this.selectedTodo = todo;
   }
 
-  open() {
+  public open(todo: Todo) {
     const modalRef = this.modalService.open(TodoDetailModalComponent);
-    modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.todo = todo;
   }
 }

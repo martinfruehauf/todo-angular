@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Todo } from '../todo';
 
 @Component({
   selector: 'app-todo-detail-modal',
@@ -9,6 +10,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class TodoDetailModalComponent {
   closeResult = '';
+  @Input() todo: Todo;
 
   constructor(private modalService: NgbModal) {}
 
