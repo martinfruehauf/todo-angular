@@ -6,8 +6,8 @@
         <div class="card-header">
           Id: {{todo.id}}
         </div>
-        <div class="card-body">
-          <div *ngIf="todo!==selectedTodo">
+        <div class="card-body" (click)="open()">
+          <div>
             <h5 class="card-title">{{todo.name}}</h5>
           </div>
         </div>
