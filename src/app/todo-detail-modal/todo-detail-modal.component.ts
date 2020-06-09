@@ -8,7 +8,7 @@ import { Todo } from '../todo';
   styleUrls: ['./todo-detail-modal.component.css']
 })
 export class TodoDetailModalComponent {
-  private todo: Todo;
+  public todo: Todo;
 
   constructor() {}
 }
