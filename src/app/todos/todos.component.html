@@ -1,0 +1,18 @@
+<h2>My Todos</h2>
+
+<div class="container">
+  <div class="row" *ngFor="let todo of todos" (click)="onSelect(todo)">
+      <div class="card" style="width: 40rem;">
+        <div class="card-header">
+          Id: {{todo.id}}
+        </div>
+        <div class="card-body">
+          <div *ngIf="todo!==selectedTodo">
+            <h5 class="card-title">{{todo.name}}</h5>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
