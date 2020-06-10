@@ -80,4 +80,9 @@ describe('TodosComponent', () => {
     const service = (fixture.componentInstance as any).modalService as MockNgbModal;
     expect(service.modalRef.componentInstance.todo).toEqual(todo);
   }));
+
+  it('should return todos from the called TodoService', async(() => {
+    component.getTodos();
+    expect(component.todos).toEqual(TODOS);
+  }));
 });
