@@ -77,9 +77,7 @@ describe('TodosComponent', () => {
     todo = TODOS[0];
     expect(cards.length).toBe(3);
     cards[0].triggerEventHandler('click', todo);
-    console.log('==== ', cards[0]);
     const service = (fixture.componentInstance as any).modalService as MockNgbModal;
-    console.log('====', service);
     expect(service.modalRef.componentInstance.todo).toEqual(todo);
   }));
 });
