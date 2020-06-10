@@ -1,7 +1,7 @@
 <h2 class="text-center">My Todos</h2>
 
 <div class="container">
-  <div class="row" *ngFor="let todo of todos" (click)="onSelect(todo)">
+  <div class="row" *ngFor="let todo of todos">
       <div class="card" style="width: 40rem;">
         <div class="card-header">
           Id: {{todo.id}}

@@ -18,21 +18,25 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodoService, private modalService: NgbModal) { }
 
   public getTodos(): void {
-/*    this.todoService.getTodos()
+    console.log('###### get TODOS');
+    this.todoService.getTodos()
       .subscribe(todos => this.todos = todos);
-    console.log(this.todos);*/
-    this.todos = TODOS;
+    console.log(this.todos);
+    /*this.todos = TODOS;*/
   }
 
   public ngOnInit(): void {
+    console.log('####### NG ON INIT');
     this.getTodos();
   }
 
   public onSelect(todo: Todo): void {
+    console.log('####### on Select', todo);
     this.selectedTodo = todo;
   }
 
   public open(todo: Todo) {
+    console.log('####### open');
     const modalRef = this.modalService.open(TodoDetailModalComponent);
     modalRef.componentInstance.todo = todo;
   }
