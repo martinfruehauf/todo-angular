@@ -5,12 +5,9 @@ import {TodoDetailModalComponent} from '../todo-detail-modal/todo-detail-modal.c
 import { TODOS } from '../mock-todos';
 import { Todo } from '../todo';
 import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
 import {TodoService} from '../todo.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Observable, of} from 'rxjs';
-import {NgbModalWindow} from '@ng-bootstrap/ng-bootstrap/modal/modal-window';
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 class MockTodoService{
   public getTodos(): Observable<Todo[]> {
