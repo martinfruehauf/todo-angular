@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 import { TODOS } from './mock-todos';
-import {Observable, of, pipe} from 'rxjs';
+import { Observable, of, pipe} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -14,10 +14,7 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   public getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.todosUrl)
-      .pipe(
-        catchError(this.handleError<Todo[]>('getTodos', []))
-    );
+    return of(TODOS);
   }
 
   /**
@@ -28,9 +25,6 @@ export class TodoService {
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
