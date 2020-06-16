@@ -14,7 +14,10 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   public getTodos(): Observable<Todo[]> {
-    return of(TODOS);
+    return this.http.get<Todo[]>(this.todosUrl)
+      .pipe(
+        catchError(this.handleError<Todo[]>('getTodos', []))
+      );
   }
 
   /**
