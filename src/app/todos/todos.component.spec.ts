@@ -27,7 +27,6 @@ class MockNgbModal {
         todo
       }
     };
-    console.log('=======', this.modalRef);
     return this.modalRef;
   }
 }

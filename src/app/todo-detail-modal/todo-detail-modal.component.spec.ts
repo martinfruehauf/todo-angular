@@ -5,7 +5,7 @@ import { Todo } from '../todo';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TodosComponent} from '../todos/todos.component';
 
-xdescribe('TodoDetailModalComponent', () => {
+describe('TodoDetailModalComponent', () => {
   let component: TodoDetailModalComponent;
   let fixture: ComponentFixture<TodoDetailModalComponent>;
 
@@ -23,6 +23,8 @@ xdescribe('TodoDetailModalComponent', () => {
   });
 
   it('should create', () => {
+    console.log('!!!!!! COMPONENT:', component);
+    console.log('!!!');
     expect(component).toBeTruthy();
   });
 });
