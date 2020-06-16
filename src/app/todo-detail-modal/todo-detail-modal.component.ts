@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import { Todo } from '../todo';
 
@@ -8,6 +8,7 @@ import { Todo } from '../todo';
   styleUrls: ['./todo-detail-modal.component.css']
 })
 export class TodoDetailModalComponent {
+  @Input()
   public todo: Todo;
 
   constructor() {}

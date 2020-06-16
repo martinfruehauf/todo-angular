@@ -8,12 +8,6 @@ import {TodoService} from '../todo.service';
 import {Observable, of} from 'rxjs';
 import {TODOS} from '../mock-todos';
 
-class MockTodoService{
-  public getTodos(): Observable<Todo[]> {
-    return of(TODOS);
-  }
-}
-
 class MockNgbModal {
   public modalRef: {
     componentInstance: {
@@ -33,15 +27,12 @@ class MockNgbModal {
 describe('TodoDetailModalComponent', () => {
   let component: TodoDetailModalComponent;
   let fixture: ComponentFixture<TodoDetailModalComponent>;
+  let todo: Todo;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TodoDetailModalComponent],
       providers: [
-        {
-          provide: TodoService,
-          useClass: MockTodoService
-        },
         {
           provide: NgbModal,
           useClass: MockNgbModal
@@ -59,7 +50,12 @@ describe('TodoDetailModalComponent', () => {
   });
 
   it('should create', () => {
+    todo = TODOS[0];
+    const service = (fixture.componentInstance as any).modalService as MockNgbModal;
+    const modalRef = service.open(todo);
+    service.modalRef.componentInstance.todo = todo;
     console.log('!!!!!! COMPONENT:', component);
+    console.log('!!!!!! COMPONENT:', component.todo);
     console.log('!!!!!!');
     expect(component).toBeTruthy();
   });
