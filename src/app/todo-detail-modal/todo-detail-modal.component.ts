@@ -3,6 +3,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import { Todo } from '../todo';
 import {BaseTodoDTO} from '../baseTodoDTO';
 import {TodoService} from '../todo.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-todo-detail-modal',
@@ -12,25 +13,30 @@ import {TodoService} from '../todo.service';
 export class TodoDetailModalComponent implements AfterViewInit, OnInit{
   @Input() public todo: Todo;
   @Input() public baseTodoDTO: BaseTodoDTO;
-  @ViewChild('name') name: ElementRef;
-  @ViewChild('description') description: ElementRef;
-  @ViewChild('status') status: ElementRef;
-  @ViewChild('dueDate') dueDate: ElementRef;
+  name: string;
+  description: string;
+  status: boolean;
+  dueDate: Date;
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private modalService: NgbModal) {
+    console.log('Constructor: Todo', this.todo);
     this.baseTodoDTO = {
       name: '',
       description: '',
       status: false,
       dueDate: null
     };
+/*    this.name = this.todo.name;
+    this.description = this.todo.description;
+    this.status = this.todo.status;
+    this.dueDate = this.todo.dueDate;*/
   }
 
   public save(){
-    this.baseTodoDTO.name = this.name.nativeElement.value;
-    this.baseTodoDTO.description = this.description.nativeElement.value;
-    this.baseTodoDTO.status = this.status.nativeElement.checked;
-    this.baseTodoDTO.dueDate = new Date(this.dueDate.nativeElement.value);
+    this.baseTodoDTO.name = this.name;
+    this.baseTodoDTO.description = this.description;
+    this.baseTodoDTO.status = this.status;
+    this.baseTodoDTO.dueDate = this.dueDate;
     console.log('//&&&///&&&?????????? BASETODO', this.baseTodoDTO);
     console.log('//&&&///&&&?????????? ID', this.todo.id);
     // now call service update mehtod
@@ -41,6 +47,9 @@ export class TodoDetailModalComponent implements AfterViewInit, OnInit{
   }
 
   ngOnInit(): void {
-
+    this.name = this.todo.name;
+    this.description = this.todo.description;
+    this.status = this.todo.status;
+    this.dueDate = this.todo.dueDate;
   }
 }

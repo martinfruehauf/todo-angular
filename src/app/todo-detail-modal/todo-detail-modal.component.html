@@ -7,20 +7,20 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Name:</span>
       </div>
-      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" #name placeholder="{{todo.name}}">
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="name" name="w">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Description:</span>
       </div>
-      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" #description placeholder="{{todo.description}}">
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="description" name="x">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text">Status</label>
       </div>
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1" #status [checked]="todo.status">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="status" [checked]="todo.status" name="y">
         <label class="custom-control-label" for="customSwitch1">Turn on to set to 'true'</label>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">DueDate:</span>
       </div>
-      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" #dueDate placeholder="{{todo.dueDate}}">
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="dueDate" name="z">
     </div>
   </form>
 </div>
