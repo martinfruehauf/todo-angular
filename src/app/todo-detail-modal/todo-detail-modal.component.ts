@@ -10,7 +10,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './todo-detail-modal.component.html',
   styleUrls: ['./todo-detail-modal.component.css']
 })
-export class TodoDetailModalComponent implements AfterViewInit, OnInit{
+export class TodoDetailModalComponent implements OnInit{
   @Input() public todo: Todo;
   @Input() public baseTodoDTO: BaseTodoDTO;
   name: string;
@@ -26,10 +26,6 @@ export class TodoDetailModalComponent implements AfterViewInit, OnInit{
       status: false,
       dueDate: null
     };
-/*    this.name = this.todo.name;
-    this.description = this.todo.description;
-    this.status = this.todo.status;
-    this.dueDate = this.todo.dueDate;*/
   }
 
   public save(){
@@ -43,9 +39,6 @@ export class TodoDetailModalComponent implements AfterViewInit, OnInit{
     this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
   }
 
-  ngAfterViewInit() {
-  }
-
   ngOnInit(): void {
     this.name = this.todo.name;
     this.description = this.todo.description;
@@ -53,3 +46,4 @@ export class TodoDetailModalComponent implements AfterViewInit, OnInit{
     this.dueDate = this.todo.dueDate;
   }
 }
+
