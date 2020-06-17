@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import {TodoDetailModalComponent} from '../todo-detail-modal/todo-detail-modal.component';
 
 @Component({
@@ -26,7 +26,10 @@ export class TodosComponent implements OnInit {
   }
 
   public open(todo: Todo) {
-    const modalRef = this.modalService.open(TodoDetailModalComponent);
+    const modalRef = this.modalService.open(TodoDetailModalComponent, {
+      backdrop : 'static',
+      keyboard : false
+    });
     modalRef.componentInstance.todo = todo;
     console.log('in todos.component.ts open(todo: Todo)   modalRef.componentInstance.todo ', modalRef.componentInstance.todo);
   }
