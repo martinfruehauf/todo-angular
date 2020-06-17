@@ -4,6 +4,7 @@ import { TODOS } from './mock-todos';
 import { Observable, of, pipe} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import {BaseTodoDTO} from './baseTodoDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,19 @@ export class TodoService {
     return this.http.get<Todo[]>(this.todosUrl)
       .pipe(
         catchError(this.handleError<Todo[]>('getTodos', []))
+      );
+  }
+
+  public updateTodo(id: string, baseTodoDTO: BaseTodoDTO) {
+    console.log('§§§§§§§ Service: ');
+    console.log('§§§§§§§ ID concat: ', `${this.todosUrl}/${id}`);
+    return this.http.put<void>(`${this.todosUrl}/${id}`, baseTodoDTO, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    })
+      .pipe(
+        catchError(this.handleError('updateTodos'))
       );
   }
 

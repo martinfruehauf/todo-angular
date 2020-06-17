@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 
 import { Todo } from '../todo';
 import {BaseTodoDTO} from '../baseTodoDTO';
+import {TodoService} from '../todo.service';
 
 @Component({
   selector: 'app-todo-detail-modal',
@@ -16,7 +17,7 @@ export class TodoDetailModalComponent implements AfterViewInit, OnInit{
   @ViewChild('status') status: ElementRef;
   @ViewChild('dueDate') dueDate: ElementRef;
 
-  constructor() {
+  constructor(private todoService: TodoService) {
     this.baseTodoDTO = {
       name: '',
       description: '',
@@ -26,13 +27,14 @@ export class TodoDetailModalComponent implements AfterViewInit, OnInit{
   }
 
   public save(){
-    console.log('//&&&///&&& TODO', this.todo);
-    console.log('//&&&///&&& BASETODO', this.baseTodoDTO);
     this.baseTodoDTO.name = this.name.nativeElement.value;
     this.baseTodoDTO.description = this.description.nativeElement.value;
     this.baseTodoDTO.status = this.status.nativeElement.checked;
     this.baseTodoDTO.dueDate = new Date(this.dueDate.nativeElement.value);
-    console.log('//&&&///&&&?????????? BASETODO NAME', this.baseTodoDTO);
+    console.log('//&&&///&&&?????????? BASETODO', this.baseTodoDTO);
+    console.log('//&&&///&&&?????????? ID', this.todo.id);
+    // now call service update mehtod
+    this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
   }
 
   ngAfterViewInit() {
