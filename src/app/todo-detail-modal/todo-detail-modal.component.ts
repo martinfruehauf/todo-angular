@@ -19,7 +19,6 @@ export class TodoDetailModalComponent implements OnInit{
   dueDate: Date;
 
   constructor(private todoService: TodoService, private modalService: NgbModal) {
-    console.log('Constructor: Todo', this.todo);
     this.baseTodoDTO = {
       name: '',
       description: '',
@@ -33,9 +32,6 @@ export class TodoDetailModalComponent implements OnInit{
     this.baseTodoDTO.description = this.description;
     this.baseTodoDTO.status = this.status;
     this.baseTodoDTO.dueDate = this.dueDate;
-    console.log('//&&&///&&&?????????? BASETODO', this.baseTodoDTO);
-    console.log('//&&&///&&&?????????? ID', this.todo.id);
-    // now call service update mehtod
     this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
   }
 

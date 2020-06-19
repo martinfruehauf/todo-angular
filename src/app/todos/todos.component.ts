@@ -31,6 +31,5 @@ export class TodosComponent implements OnInit {
       keyboard : false
     });
     modalRef.componentInstance.todo = todo;
-    console.log('in todos.component.ts open(todo: Todo)   modalRef.componentInstance.todo ', modalRef.componentInstance.todo);
   }
 }
