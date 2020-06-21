@@ -23,12 +23,10 @@
         <div class="input-group-prepend">
           <label class="input-group-text">Status</label>
         </div>
-<!--        <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="status"
-                 [checked]="todo.status" name="y">
-          <label class="custom-control-label" for="customSwitch1">Turn on to set to 'true'</label>
-        </div>-->
-        <input type="checkbox" data-toggle="toggle" [checked]="todo.status" name="y">
+        <label class="switch">
+          <input type="checkbox" [checked]="todo.status" name="y">
+          <span class="slider round"></span>
+        </label>
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
