@@ -24,7 +24,7 @@
           <label class="input-group-text">Status</label>
         </div>
         <label class="switch">
-          <input type="checkbox" [checked]="todo.status" name="y">
+          <input type="checkbox" [(ngModel)]="status" [checked]="todo.status" name="y">
           <span class="slider round"></span>
         </label>
       </div>

@@ -32,6 +32,7 @@ export class TodoDetailModalComponent implements OnInit{
     this.baseTodoDTO.description = this.description;
     this.baseTodoDTO.status = this.status;
     this.baseTodoDTO.dueDate = this.dueDate;
+    console.log(this.baseTodoDTO);
     this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
   }
 
