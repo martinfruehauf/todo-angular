@@ -32,6 +32,18 @@ export class TodoService {
       );
   }
 
+  public addTodo(baseTodoDTO: BaseTodoDTO): Observable<BaseTodoDTO>{
+    console.log('in Service: ..... ');
+    return this.http.post<BaseTodoDTO>(this.todosUrl, baseTodoDTO, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    })
+      .pipe(
+        catchError(this.handleError<BaseTodoDTO>('addTodo'))
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

@@ -32,7 +32,12 @@ export class TodoDetailModalComponent implements OnInit{
     this.baseTodoDTO.description = this.description;
     this.baseTodoDTO.status = this.status;
     this.baseTodoDTO.dueDate = this.dueDate;
-    this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
+    if (this.todo.id) {
+      this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
+    } else {
+      console.log('Calling addTodo in TodoService');
+      this.todoService.addTodo(this.baseTodoDTO).subscribe();
+    }
   }
 
   ngOnInit(): void {

@@ -32,4 +32,21 @@ export class TodosComponent implements OnInit {
     });
     modalRef.componentInstance.todo = todo;
   }
+
+  public add() {
+    const modalRef = this.modalService.open(TodoDetailModalComponent, {
+      backdrop : 'static',
+      keyboard : false
+    });
+    let todo: Todo;
+    todo = {
+      id: null,
+      name: null,
+      description: null,
+      status: false,
+      dueDate: null
+    };
+    modalRef.componentInstance.todo = todo;
+
+  }
 }
