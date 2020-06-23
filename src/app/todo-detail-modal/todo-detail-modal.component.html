@@ -8,7 +8,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Name:</span>
         </div>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+        <input type="text" required="true" minlength="1" maxlength="30" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                [(ngModel)]="name"
                name="w">
       </div>
@@ -16,7 +16,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Description:</span>
         </div>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+        <input type="text" maxlength="500" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                [(ngModel)]="description" name="x">
       </div>
       <div class="input-group mb-3">
@@ -32,7 +32,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">DueDate:</span>
         </div>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+        <input type="text" required="true" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                [(ngModel)]="dueDate" name="z">
       </div>
     </form>
