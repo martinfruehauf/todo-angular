@@ -1,25 +1,46 @@
-<div class="modal-header">
-  <h4 class="modal-title" id="modal-basic-title">Details of Todo</h4>
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Details of Todo {{todo.id}}</h4>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Name:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+               [(ngModel)]="name"
+               name="w">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Description:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+               [(ngModel)]="description" name="x">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Status</label>
+        </div>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="status" name="y">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">DueDate:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+               [(ngModel)]="dueDate" name="z">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload()">Close
+    </button>
+  </div>
 </div>
-<div class="modal-body">
-  <form>
-    <div class="form-group">
-      <label>Id:</label>
-      <label>{{todo.id}}</label>
-    </div>
-    <div class="form-group">
-      <label>Name:</label><label>{{todo.name}}</label>
-    </div>
-    <div class="form-group">
-      <label>Description:</label><label>{{todo.description}}</label>
-    </div>
-    <div class="form-group">
-      <label>Status:</label><label>{{todo.status}}</label>
-    </div>
-    <div class="form-group">
-      <label>Due Date:</label><label>{{todo.dueDate | date : 'MMM d, y, H:mm'}}</label>
-    </div>
-  </form>
-</div>
-<hr>
 
