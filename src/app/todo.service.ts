@@ -33,7 +33,6 @@ export class TodoService {
   }
 
   public addTodo(baseTodoDTO: BaseTodoDTO): Observable<BaseTodoDTO>{
-    console.log('in Service: ..... ');
     return this.http.post<BaseTodoDTO>(this.todosUrl, baseTodoDTO, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
