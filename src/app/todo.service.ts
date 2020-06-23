@@ -21,7 +21,7 @@ export class TodoService {
       );
   }
 
-  public updateTodo(id: string, baseTodoDTO: BaseTodoDTO) {
+  public updateTodo(id: number, baseTodoDTO: BaseTodoDTO) {
     return this.http.put<void>(`${this.todosUrl}/${id}`, baseTodoDTO, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
