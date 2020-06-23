@@ -4,7 +4,7 @@
   <div class="row" *ngFor="let todo of todos">
       <div class="card" style="width: 100%;">
         <div class="card-header">
-          Id: {{todo.id}}
+          {{todo.id}}
         </div>
         <div class="card-body" (click)="open(todo)">
           <div>
