@@ -35,7 +35,6 @@ export class TodoDetailModalComponent implements OnInit{
     if (this.todo.id) {
       this.todoService.updateTodo(String(this.todo.id), this.baseTodoDTO).subscribe();
     } else {
-      console.log('Calling addTodo in TodoService');
       this.todoService.addTodo(this.baseTodoDTO).subscribe();
     }
   }
