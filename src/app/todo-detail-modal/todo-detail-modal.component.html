@@ -8,7 +8,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Name:</span>
         </div>
-        <input type="text" required="true" minlength="1" maxlength="30" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+        <input type="text" required="true" minlength="1" maxlength="30" class="form-control" aria-label="Username"
+               aria-describedby="basic-addon1"
                [(ngModel)]="name"
                name="w">
       </div>
@@ -28,21 +29,27 @@
           <span class="slider round"></span>
         </label>
       </div>
+
       <div class="input-group mb-3">
+
+
         <div class="input-group-prepend">
-          <span class="input-group-text">DueDate:</span>
+          <span class="input-group-text">Due:</span>
         </div>
-<!--        <input type="text" required="true" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-               [(ngModel)]="dueDate" name="z">-->
-<!--another button        <input type="text" ngbDatepicker #date="ngbDatepicker" name="z"/>
-        <button (click)="date.toggle()">Date</button>-->
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp" [(ngModel)]="ngbDate" ngbDatepicker #datepicker="ngbDatepicker">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">Date</button>
+               name="dp" [(ngModel)]="ngbDate" ngbDatepicker #datepicker="ngbDatepicker" required="true">
+        <div class="input-group-append h-50">
+          <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">Date
+          </button>
         </div>
-        <ngb-timepicker [(ngModel)]="ngbTime" name="zz"></ngb-timepicker>
       </div>
+
+
+
+        <ngb-timepicker [(ngModel)]="ngbTime" name="zz"></ngb-timepicker>
+
+
+
     </form>
   </div>
   <div class="modal-footer">
@@ -50,5 +57,4 @@
     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload()">Close
     </button>
   </div>
-</div>
 

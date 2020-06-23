@@ -55,6 +55,11 @@ export class TodoDetailModalComponent implements OnInit{
         hour: d.getHours(),
         minute: d.getMinutes()
       };
+      this.ngbDate = { year: d.getFullYear(),
+                      month: d.getMonth() + 1,
+                        day: d.getDate()
+      };
+      console.log('d.getMonth', d.getMonth());
     }
   }
 }
