@@ -3,7 +3,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import { Todo } from '../todo';
 import {BaseTodoDTO} from '../baseTodoDTO';
 import {TodoService} from '../todo.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-todo-detail-modal',
@@ -17,6 +17,9 @@ export class TodoDetailModalComponent implements OnInit{
   description: string;
   status: boolean;
   dueDate: Date;
+  date: string;
+  ngbTime: {hour: number, minute: number};
+  ngbDate: NgbDateStruct;
 
   constructor(private todoService: TodoService, private modalService: NgbModal) {
     this.baseTodoDTO = {
@@ -31,7 +34,9 @@ export class TodoDetailModalComponent implements OnInit{
     this.baseTodoDTO.name = this.name;
     this.baseTodoDTO.description = this.description;
     this.baseTodoDTO.status = this.status;
-    this.baseTodoDTO.dueDate = this.dueDate;
+    // tslint:disable-next-line:max-line-length
+    this.baseTodoDTO.dueDate = new Date(this.ngbDate.year, this.ngbDate.month - 1, this.ngbDate.day, this.ngbTime.hour, this.ngbTime.minute);
+    console.log('save - before if clause', this.baseTodoDTO.dueDate);
     if (this.todo.id) {
       this.todoService.updateTodo(this.todo.id, this.baseTodoDTO).subscribe();
     } else {
@@ -44,6 +49,13 @@ export class TodoDetailModalComponent implements OnInit{
     this.description = this.todo.description;
     this.status = this.todo.status;
     this.dueDate = this.todo.dueDate;
+    if (this.todo.id) {
+      const d = new Date(this.dueDate);
+      this.ngbTime = {
+        hour: d.getHours(),
+        minute: d.getMinutes()
+      };
+    }
   }
 }
 

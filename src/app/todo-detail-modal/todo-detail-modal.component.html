@@ -32,8 +32,16 @@
         <div class="input-group-prepend">
           <span class="input-group-text">DueDate:</span>
         </div>
-        <input type="text" required="true" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-               [(ngModel)]="dueDate" name="z">
+<!--        <input type="text" required="true" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+               [(ngModel)]="dueDate" name="z">-->
+<!--another button        <input type="text" ngbDatepicker #date="ngbDatepicker" name="z"/>
+        <button (click)="date.toggle()">Date</button>-->
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="ngbDate" ngbDatepicker #datepicker="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">Date</button>
+        </div>
+        <ngb-timepicker [(ngModel)]="ngbTime" name="zz"></ngb-timepicker>
       </div>
     </form>
   </div>
