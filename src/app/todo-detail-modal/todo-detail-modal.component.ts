@@ -21,7 +21,7 @@ export class TodoDetailModalComponent implements OnInit{
   ngbTime: {hour: number, minute: number};
   ngbDate: NgbDateStruct;
 
-  constructor(private todoService: TodoService, private modalService: NgbModal) {
+  constructor(private todoService: TodoService) {
     this.baseTodoDTO = {
       name: '',
       description: '',
@@ -34,9 +34,8 @@ export class TodoDetailModalComponent implements OnInit{
     this.baseTodoDTO.name = this.name;
     this.baseTodoDTO.description = this.description;
     this.baseTodoDTO.status = this.status;
-    // tslint:disable-next-line:max-line-length
-    this.baseTodoDTO.dueDate = new Date(this.ngbDate.year, this.ngbDate.month - 1, this.ngbDate.day, this.ngbTime.hour, this.ngbTime.minute);
-    console.log('save - before if clause', this.baseTodoDTO.dueDate);
+    this.baseTodoDTO.dueDate = new Date(this.ngbDate.year,
+      this.ngbDate.month - 1, this.ngbDate.day, this.ngbTime.hour, this.ngbTime.minute);
     if (this.todo.id) {
       this.todoService.updateTodo(this.todo.id, this.baseTodoDTO).subscribe();
     } else {
@@ -59,7 +58,6 @@ export class TodoDetailModalComponent implements OnInit{
                       month: d.getMonth() + 1,
                         day: d.getDate()
       };
-      console.log('d.getMonth', d.getMonth());
     }
   }
 }
