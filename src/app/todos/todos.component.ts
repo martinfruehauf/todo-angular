@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
-import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
-import {TodoDetailModalComponent} from '../todo-detail-modal/todo-detail-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TodoDetailModalComponent } from '../todo-detail-modal/todo-detail-modal.component';
 
 @Component({
   selector: 'app-todos',

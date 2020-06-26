@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Todo } from '../todo';
-import {BaseTodoDTO} from '../baseTodoDTO';
-import {TodoService} from '../todo.service';
-import {NgbDateStruct, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { BaseTodoDTO } from '../baseTodoDTO';
+import { TodoService } from '../todo.service';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-todo-detail-modal',
