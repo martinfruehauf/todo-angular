@@ -43,7 +43,7 @@ export class TodosComponent implements OnInit {
       description: null,
       status: false,
       dueDate: null
-    };
+    } as Todo;
 
   }
 }

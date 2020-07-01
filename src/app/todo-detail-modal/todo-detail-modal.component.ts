@@ -1,16 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
-import { Todo } from '../todo';
-import { BaseTodoDTO } from '../baseTodoDTO';
-import { TodoService } from '../todo.service';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import {Todo} from '../todo';
+import {BaseTodoDTO} from '../baseTodoDTO';
+import {TodoService} from '../todo.service';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-todo-detail-modal',
   templateUrl: './todo-detail-modal.component.html',
   styleUrls: ['./todo-detail-modal.component.css']
 })
-export class TodoDetailModalComponent implements OnInit{
+export class TodoDetailModalComponent implements OnInit {
   @Input() public todo: Todo;
   @Input() public baseTodoDTO: BaseTodoDTO;
   name: string;
@@ -18,7 +18,7 @@ export class TodoDetailModalComponent implements OnInit{
   status: boolean;
   dueDate: Date;
   date: string;
-  ngbTime: {hour: number, minute: number};
+  ngbTime: { hour: number, minute: number };
   ngbDate: NgbDateStruct;
 
   constructor(private todoService: TodoService) {
@@ -30,7 +30,7 @@ export class TodoDetailModalComponent implements OnInit{
     };
   }
 
-  public save(){
+  public save() {
     this.baseTodoDTO.name = this.name;
     this.baseTodoDTO.description = this.description;
     this.baseTodoDTO.status = this.status;
@@ -54,9 +54,10 @@ export class TodoDetailModalComponent implements OnInit{
         hour: d.getHours(),
         minute: d.getMinutes()
       };
-      this.ngbDate = { year: d.getFullYear(),
-                      month: d.getMonth() + 1,
-                        day: d.getDate()
+      this.ngbDate = {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
       };
     }
   }
