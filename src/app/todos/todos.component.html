@@ -1,10 +1,10 @@
 <h2 class="text-center">My Todos</h2>
-
-<div class="container">
+<div class="container" style="width: 100%;">
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="add()">Add Todo</button>
   <div class="row" *ngFor="let todo of todos">
-      <div class="card" style="width: 40rem;">
+      <div class="card" style="width: 100%;">
         <div class="card-header">
-          Id: {{todo.id}}
+          {{todo.id}}
         </div>
         <div class="card-body" (click)="open(todo)">
           <div>

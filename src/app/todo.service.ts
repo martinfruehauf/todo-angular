@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
-import { TODOS } from './mock-todos';
 import { Observable, of, pipe} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -21,7 +20,7 @@ export class TodoService {
       );
   }
 
-  public updateTodo(id: string, baseTodoDTO: BaseTodoDTO) {
+  public updateTodo(id: number, baseTodoDTO: BaseTodoDTO) {
     return this.http.put<void>(`${this.todosUrl}/${id}`, baseTodoDTO, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -29,6 +28,17 @@ export class TodoService {
     })
       .pipe(
         catchError(this.handleError('updateTodos'))
+      );
+  }
+
+  public addTodo(baseTodoDTO: BaseTodoDTO): Observable<BaseTodoDTO>{
+    return this.http.post<BaseTodoDTO>(this.todosUrl, baseTodoDTO, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    })
+      .pipe(
+        catchError(this.handleError<BaseTodoDTO>('addTodo'))
       );
   }
 
