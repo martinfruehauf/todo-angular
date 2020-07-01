@@ -37,15 +37,13 @@ export class TodosComponent implements OnInit {
       backdrop : 'static',
       keyboard : false
     });
-    let todo: Todo;
-    todo = {
+    modalRef.componentInstance.todo = {
       id: null,
       name: null,
       description: null,
       status: false,
       dueDate: null
     };
-    modalRef.componentInstance.todo = todo;
 
   }
 }
