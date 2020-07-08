@@ -43,6 +43,10 @@ export class TodoDetailModalComponent implements OnInit {
     }
   }
 
+  public delete() {
+    this.todoService.deleteTodo(this.todo.id).subscribe();
+  }
+
   ngOnInit(): void {
     this.name = this.todo.name;
     this.description = this.todo.description;
